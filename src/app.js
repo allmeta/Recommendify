@@ -24,14 +24,18 @@ const App = props => {
       <Header />
       <main>
         <Switch>
-          <Route exact path="/" component={() => <Search token={token} />} />
+          <Route
+            exact
+            path="/"
+            render={props => <Search token={token} {...props} />}
+          />
           <Route
             path="/auth"
-            component={() => <Authorize setToken={setToken} />}
+            render={props => <Authorize setToken={setToken} {...props} />}
           />
           <Route
             path="/artist/:id"
-            component={() => <Artist token={token} />}
+            render={props => <Artist token={token} {...props} />}
           />
         </Switch>
       </main>
