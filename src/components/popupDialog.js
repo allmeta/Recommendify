@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#181818",
     color: "white",
     backgroundBlendMode: "overlay",
-    backgroundPosition: "center"
+    backgroundPosition: "center",
+    overflow: "hidden"
   },
   avatar: {
     width: "5em",
@@ -117,7 +118,10 @@ export default function PopupDialog({ token, setDialog, dialog }) {
           </DialogActions>
         </React.Fragment>
       ) : (
-        <CircularProgress />
+        <CircularProgress
+          style={{ color: "#1ed760", alignSelf: "center" }}
+          size="5em"
+        />
       )}
     </Dialog>
   );
