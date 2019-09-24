@@ -11,7 +11,7 @@ const Header = ({ token, user }) => {
       position="fixed"
       style={{
         backgroundColor: "#00000088",
-        padding: "0 1em"
+        padding: "0 2em"
       }}
     >
       <Toolbar

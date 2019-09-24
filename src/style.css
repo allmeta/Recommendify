@@ -34,7 +34,7 @@ main {
   margin: 0 auto;
 }
 .pad {
-  padding: 2em 1em;
+  padding: 2em 2em;
 }
 .gradient-1 {
   background-image: linear-gradient(90deg, #c07497, #e0d536);
@@ -67,7 +67,7 @@ main {
   height: 100%;
 }
 .ptop {
-  padding-top: 10em;
+  padding-top: 8em;
 }
 .album {
   display: flex;

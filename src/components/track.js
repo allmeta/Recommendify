@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Track = ({ items, setDialog }) => {
+const Track = ({ items, setDialog, addItemToRecommendList }) => {
   const classes = useStyles();
 
   return (
@@ -64,7 +64,7 @@ const Track = ({ items, setDialog }) => {
               <TableCell className={classes.color}>
                 <AddCircle
                   className={classes.add}
-                  onClick={() => setDialog(i.id)}
+                  onClick={() => addItemToRecommendList(i)}
                 />
               </TableCell>
             </TableRow>

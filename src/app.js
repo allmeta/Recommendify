@@ -3,10 +3,11 @@ import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import moment from "moment";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Artist from "./components/artist";
 import Search from "./components/search";
 import { getUser } from "./api/api.js";
 import Welcome from "./components/welcome";
+import RecommendationList from "./components/recommendationList";
+import Recommend from "./components/recommend";
 
 const tokenExpired = () => {
   let exp = localStorage.getItem("exp");
@@ -53,7 +54,7 @@ const App = ({ history }) => {
             render={() => <Welcome token={token} expired={expired} />}
           />
           <Route
-            path="/search/:q?"
+            path="/search/:query?"
             render={props => (
               <Search
                 token={token}
@@ -64,9 +65,23 @@ const App = ({ history }) => {
               />
             )}
           />
+          <Route
+            path="/recommend"
+            render={props => (
+              <Recommend
+                token={token}
+                recommendList={recommendList}
+                {...props}
+              />
+            )}
+          />
           <Route render={() => <Redirect to="/" />} />
         </Switch>
       </main>
+      <RecommendationList
+        recommendList={recommendList}
+        setRecommendList={setRecommendList}
+      />
       <Footer />
     </React.Fragment>
   );

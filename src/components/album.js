@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Album = ({ items, setDialog }) => {
+const Album = ({ items, setDialog, addItemToRecommendList }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -64,7 +64,7 @@ const Album = ({ items, setDialog }) => {
             <div className={classes.hover}>
               <AddCircle
                 className={classes.add}
-                onClick={() => setDialog(i.id)}
+                onClick={() => addItemToRecommendList(i.artists[0])}
               />
             </div>
           </div>

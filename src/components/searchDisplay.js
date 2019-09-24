@@ -3,7 +3,7 @@ import Album from "./album";
 import Artist from "./artist";
 import Track from "./track";
 
-const SearchDisplay = ({ type, result, setDialog }) => {
+const SearchDisplay = ({ type, result, ...props }) => {
   const typeToComponent = {
     artists: Artist,
     albums: Album,
@@ -13,8 +13,10 @@ const SearchDisplay = ({ type, result, setDialog }) => {
     result &&
     !!result[type].items.length && (
       <React.Fragment>
-        <h2>{type[0].toUpperCase() + type.substr(1)}</h2>
-        {typeToComponent[type]({ items: result[type].items, setDialog })}
+        <h2 style={{ marginLeft: "1em" }}>
+          {type[0].toUpperCase() + type.substr(1)}
+        </h2>
+        {typeToComponent[type]({ items: result[type].items, ...props })}
       </React.Fragment>
     )
   );

@@ -8,7 +8,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    justifyContent: "space-around"
   },
   avatar: {
     width: "5em",
@@ -49,15 +50,22 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       color: "white"
     }
+  },
+  artist: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    margin: "1em",
+    position: "relative"
   }
 }));
 
-const Artist = ({ items, setDialog }) => {
+const Artist = ({ items, setDialog, addItemToRecommendList }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       {items.map((i, index) => (
-        <div key={i.name + index} className="artist">
+        <div key={i.name + index} className={classes.artist}>
           <div className={classes.rel}>
             <Avatar
               onClick={() => setDialog(i.id)}
@@ -67,7 +75,10 @@ const Artist = ({ items, setDialog }) => {
               <AccountCircle className={classes.avatar} />
             </Avatar>
             <div className={classes.hover}>
-              <AddCircle className={classes.add} />
+              <AddCircle
+                className={classes.add}
+                onClick={() => addItemToRecommendList(i)}
+              />
             </div>
           </div>
           <Typography
@@ -79,6 +90,7 @@ const Artist = ({ items, setDialog }) => {
           </Typography>
         </div>
       ))}
+      <div style={{ flexGrow: "1" }} />
     </div>
   );
 };
