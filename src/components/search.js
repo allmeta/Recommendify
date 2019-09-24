@@ -24,8 +24,6 @@ const Search = ({
     history.push("/search/" + searchInput);
   };
   const addItemToRecommendList = item => {
-    console.log(item);
-
     if (recommendList.length >= 5) {
       alert("Recommendlist exceeded 5 entries");
       return;
@@ -70,7 +68,7 @@ const Search = ({
   }, [query]);
   return (
     <React.Fragment>
-      <div style={{ height: "30em", position: "relative" }}>
+      <div style={{ minHeight: "30em", position: "relative" }}>
         <div className="gradient-1" />
         <div className="gradient-2" />
         <div className="gradient-black">
@@ -79,31 +77,30 @@ const Search = ({
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center"
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center"
             }}
           >
             <h1>{user && "Welcome, " + user.display_name + "!"}</h1>
             <div
               style={{
                 display: "flex",
-                flexWrap: "wrap"
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "center"
               }}
             >
-              <p style={{ width: "12em", margin: "2em" }}>
-                Choose up to 5 artists/tracks and get a recommended playlist
+              <p style={{ width: "12em", margin: "1em" }}>
+                Choose up to 5 artists/tracks and 1et a recommended playlist
                 based on those!
               </p>
-              <p style={{ width: "12em", margin: "2em" }}>
+              <p style={{ width: "12em", margin: "1em" }}>
                 Click on an artist name to get more information about the
                 artist!
               </p>
             </div>
-            <Paper
-              style={{
-                borderRadius: "50px",
-                paddingLeft: "1em"
-              }}
-            >
+            <Paper style={{}}>
               <InputBase
                 style={{ fontFamily: "Circular" }}
                 autoFocus

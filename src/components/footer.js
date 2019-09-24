@@ -5,9 +5,7 @@ const Footer = () => {
     <footer
       style={{
         position: "relative",
-        margin: "2em 0 0",
-        height: "13em",
-        paddingBottom: "3em"
+        height: "10em"
       }}
     >
       <div className="gradient-3" />
@@ -16,7 +14,6 @@ const Footer = () => {
           className="width pad center"
           style={{
             textAlign: "center",
-            zIndex: 2,
             width: "100%",
             height: "100%"
           }}

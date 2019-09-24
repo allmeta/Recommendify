@@ -46,7 +46,7 @@ const App = ({ history }) => {
   return (
     <React.Fragment>
       <Header token={token} user={user} />
-      <main style={{ flexGrow: "1" }}>
+      <main style={{ flexGrow: "1", minHeight: "20em" }}>
         <Switch>
           <Route
             exact
