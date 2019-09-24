@@ -17,7 +17,7 @@ import { getArtist, getAlbums } from "../api/api.js";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: "#181818",
+    backgroundColor: "#282828",
     color: "white",
     backgroundBlendMode: "overlay",
     backgroundPosition: "center",

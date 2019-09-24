@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -17,6 +18,9 @@ const useStyles = makeStyles(theme => ({
     overflowX: "auto",
     backgroundColor: "#282828"
   },
+  title: {
+    textAlign: "center"
+  },
   open: {
     color: "1ed760",
     cursor: "pointer",
@@ -26,10 +30,14 @@ const useStyles = makeStyles(theme => ({
   },
   color: {
     color: "white"
+  },
+  back: {
+    color: "white",
+    textDecoration: "underline"
   }
 }));
 
-const Recommend = ({ recommendList, token }) => {
+const Recommend = ({ recommendList, token, history }) => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     if (!!recommendList.length) {
@@ -44,6 +52,10 @@ const Recommend = ({ recommendList, token }) => {
   }
   return (
     <section className="width center pad ptop">
+      <Button className={classes.back} onClick={() => history.goBack()}>
+        {"< Back"}
+      </Button>
+      <h1 className={classes.title}>Recommendations</h1>
       <Paper className={classes.root}>
         <Table>
           <TableHead>

@@ -22,7 +22,6 @@ const Search = ({
   const { query } = match.params;
   const onSearchHandler = () => {
     history.push("/search/" + searchInput);
-    // spotifySearch(token, searchInput).then(res => setSearchResult(res));
   };
   const addItemToRecommendList = item => {
     console.log(item);

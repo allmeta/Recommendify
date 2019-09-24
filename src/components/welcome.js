@@ -32,7 +32,8 @@ const Welcome = ({ token, expired }) => {
             backgroundColor: "#1ed760",
             color: "white",
             borderRadius: "500px",
-            fontWeight: "700"
+            fontWeight: "700",
+            width: "10em"
           }}
           href={`https://accounts.spotify.com/authorize?client_id=${config.id}&redirect_uri=${window.location.origin}&response_type=token`}
         >

@@ -46,7 +46,7 @@ const App = ({ history }) => {
   return (
     <React.Fragment>
       <Header token={token} user={user} />
-      <main>
+      <main style={{ flexGrow: "1" }}>
         <Switch>
           <Route
             exact
@@ -78,11 +78,11 @@ const App = ({ history }) => {
           <Route render={() => <Redirect to="/" />} />
         </Switch>
       </main>
+      <Footer />
       <RecommendationList
         recommendList={recommendList}
         setRecommendList={setRecommendList}
       />
-      <Footer />
     </React.Fragment>
   );
 };
