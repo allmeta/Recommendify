@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import InputBase from "@material-ui/core/InputBase";
-import Paper from "@material-ui/core/Paper";
-import IconButton from "@material-ui/core/IconButton";
-import PopupDialog from "./popupDialog";
-import SearchIcon from "@material-ui/icons/Search";
+import React, { useState, useEffect } from "react"
+import InputBase from "@material-ui/core/InputBase"
+import Paper from "@material-ui/core/Paper"
+import IconButton from "@material-ui/core/IconButton"
+import PopupDialog from "./popupDialog"
+import SearchIcon from "@material-ui/icons/Search"
 
-import { spotifySearch } from "../api/api.js";
-import SearchDisplay from "./searchDisplay";
+import { spotifySearch } from "../api/api.js"
+import SearchDisplay from "./searchDisplay"
 
 const Search = ({
   token,
@@ -16,17 +16,17 @@ const Search = ({
   recommendList,
   setRecommendList
 }) => {
-  const [searchInput, setSearchInput] = useState("");
-  const [searchResult, setSearchResult] = useState(null);
-  const [dialog, setDialog] = useState("");
-  const { query } = match.params;
+  const [searchInput, setSearchInput] = useState("")
+  const [searchResult, setSearchResult] = useState(null)
+  const [dialog, setDialog] = useState("")
+  const { query } = match.params
   const onSearchHandler = () => {
-    history.push("/search/" + searchInput);
-  };
-  const addItemToRecommendList = item => {
+    history.push("/search/" + searchInput)
+  }
+  const addItemToRecommendList = (item) => {
     if (recommendList.length >= 5) {
-      alert("Recommendlist exceeded 5 entries");
-      return;
+      alert("Recommendlist exceeded 5 entries")
+      return
     }
     switch (item.type) {
       case "artist": {
@@ -39,8 +39,8 @@ const Search = ({
             key: recommendList.length + item.id,
             type: item.type
           }
-        ]);
-        break;
+        ])
+        break
       }
       case "track": {
         setRecommendList([
@@ -52,20 +52,20 @@ const Search = ({
             artist: item.artists[0].name,
             type: item.type
           }
-        ]);
-        break;
+        ])
+        break
       }
     }
-  };
+  }
   useEffect(() => {
     //called on mount and on query update
     if (!token) {
-      history.push("/");
+      history.push("/")
     }
     if (query) {
-      spotifySearch(token, query).then(res => setSearchResult(res));
+      spotifySearch(token, query).then((res) => setSearchResult(res))
     }
-  }, [query]);
+  }, [query])
   return (
     <React.Fragment>
       <div style={{ minHeight: "30em", position: "relative" }}>
@@ -100,12 +100,16 @@ const Search = ({
                 artist!
               </p>
             </div>
-            <Paper style={{}}>
+            <Paper style={{ borderRadius: "500px" }}>
               <InputBase
-                style={{ fontFamily: "Circular" }}
+                style={{
+                  fontFamily: "Circular",
+                  paddingLeft: "1em",
+                  width: "80%"
+                }}
                 autoFocus
                 value={searchInput}
-                onChange={e => setSearchInput(e.target.value)}
+                onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search Spotify"
               />
               <IconButton onClick={onSearchHandler}>
@@ -148,7 +152,7 @@ const Search = ({
         <PopupDialog dialog={dialog} setDialog={setDialog} token={token} />
       )}
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search
